@@ -27,7 +27,6 @@ _install_luan_nvim_config() {
 
 main() {
   _setup_gitconfig
-  _install_git_hooks_core
   _install_luan_nvim_config
 }
 

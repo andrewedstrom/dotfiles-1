@@ -16,6 +16,14 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
+## Better up and down arrow behavior
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
 ## Prompt
 setopt prompt_subst
 
@@ -43,6 +51,10 @@ function +vi-git-st() {
 precmd() {
   vcs_info
 }
+
+## NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 ## Aliases
 alias gst="git status"

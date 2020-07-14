@@ -77,7 +77,6 @@ test -f "${homebrew_git_api_token}" && . "${homebrew_git_api_token}"
 
 bup() {
   brew update && \
-    brew bundle cleanup --force --verbose && \
     brew bundle && \
     brew upgrade && brew cask upgrade && \
     brew cleanup && \

@@ -7,7 +7,7 @@ brew "curl"
 brew "direnv"
 brew "fd"
 brew "fzf"
-brew "git", link: false
+brew "git"
 brew "libgcrypt"
 brew "neovim"
 brew "python@3.8"

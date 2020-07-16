@@ -61,3 +61,7 @@ alias gst="git status"
 
 PROMPT='%{$fg[cyan]%}%*%{$reset_color%} %{$fg[magenta]%}%m%{$reset_color%}:%{$fg[green]%}%~%{$reset_color%}
 ${vcs_info_msg_0_} %{$fg[green]%}% $ %{$reset_color%}'
+
+## Programs that watch history
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fasd --init auto)"

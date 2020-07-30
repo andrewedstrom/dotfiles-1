@@ -65,3 +65,12 @@ ${vcs_info_msg_0_} %{$fg[green]%}% $ %{$reset_color%}'
 ## Programs that watch history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fasd --init auto)"
+
+function fossa_up() {
+  pushd ~/workspace/FOSSA
+    docker-compose up -d s3
+    docker-compose up -d db
+    docker-compose up -d smtp
+    yarn boot:dev
+  popd
+}

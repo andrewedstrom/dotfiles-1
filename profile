@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 ## Aliases
-alias ag="echo \"====> Use 'rg' instead of 'ag'!\";echo; rg"
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   alias ls="ls -F --color=always"
 else # bsd `ls`

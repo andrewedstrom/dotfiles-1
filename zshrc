@@ -74,3 +74,18 @@ function fossa_up() {
     yarn boot:dev
   popd
 }
+
+function new_db() {
+  pushd ~/workspace/FOSSA
+    docker-compose stop db
+    rm -rf ~/fossadata.bak
+    mv ~/fossadata ~/fossadata.bak
+    docker-compose up -d db
+    sleep 30
+    yarn migrate:dev
+    yarn seed:dev
+    pushd ~/workspace/vulndb-tools
+      yarn migrate:json
+    popd
+  popd
+}

@@ -12,6 +12,8 @@ brew "fzf"
 brew "git"
 brew "gnu-tar"
 brew "libgcrypt"
+brew "libpq", link: true
+brew "maven"
 brew "neovim"
 brew "python@3.8"
 brew "rcm"

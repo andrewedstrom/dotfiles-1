@@ -58,6 +58,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 ## Aliases
 alias gst="git status"
+alias kc="kubectl"
 
 PROMPT='%{$fg[cyan]%}%*%{$reset_color%} %{$fg[magenta]%}%m%{$reset_color%}:%{$fg[green]%}%~%{$reset_color%}
 ${vcs_info_msg_0_} %{$fg[green]%}% $ %{$reset_color%}'
@@ -90,3 +91,5 @@ function new_db() {
   popd
 }
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+setopt interactivecomments

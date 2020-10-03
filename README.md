@@ -46,3 +46,6 @@ Optional. Set some macOS, and App settings, see [`macos_setup`](dotfiles/profile
 ```
 source "${HOME}/.profile" && macos_setup
 ```
+
+### On Windows
+just try a bunch of random stuff

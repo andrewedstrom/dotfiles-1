@@ -9,7 +9,7 @@
 ### Clone this repo
 
 ```
-git clone git@github.com/aramprice/dotfiles "${HOME}/workspace/dotfiles"
+git clone git@github.com/andrewedstrom/dotfiles "${HOME}/workspace/dotfiles"
 ```
 
 #### Install `brew`

@@ -90,6 +90,16 @@ function new_db() {
     popd
   popd
 }
+
+onport() {
+  lsof -i :$1
+}
+
+# Kills whatever is running on a specified port
+killport() {
+  kill -9 "$(lsof -i :$1 -t)"
+}
+
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 setopt interactivecomments

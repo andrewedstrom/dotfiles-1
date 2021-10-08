@@ -52,10 +52,6 @@ precmd() {
   vcs_info
 }
 
-## NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
 ## Aliases
 alias gst="git status"
 alias kc="kubectl"
@@ -67,30 +63,6 @@ ${vcs_info_msg_0_} %{$fg[green]%}% $ %{$reset_color%}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fasd --init auto)"
 
-function fossa_up() {
-  pushd ~/workspace/FOSSA
-    docker-compose up -d s3
-    docker-compose up -d db
-    docker-compose up -d smtp
-    yarn boot:dev
-  popd
-}
-
-function new_db() {
-  pushd ~/workspace/FOSSA
-    docker-compose stop db
-    rm -rf ~/fossadata.bak
-    mv ~/fossadata ~/fossadata.bak
-    docker-compose up -d db
-    sleep 30
-    yarn migrate:dev
-    yarn seed:dev
-    pushd ~/workspace/vulndb-tools
-      yarn migrate:json
-    popd
-  popd
-}
-
 onport() {
   lsof -i :$1
 }
@@ -100,6 +72,7 @@ killport() {
   kill -9 "$(lsof -i :$1 -t)"
 }
 
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
 setopt interactivecomments
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

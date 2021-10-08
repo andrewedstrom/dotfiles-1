@@ -77,9 +77,7 @@ test -f "${homebrew_git_api_token}" && . "${homebrew_git_api_token}"
 bup() {
   brew update && \
     brew bundle && \
-    brew upgrade && brew cask upgrade && \
-    brew cleanup && \
-    brew doctor ; brew cask doctor
+    brew upgrade
 }
 
 ## Golang: This has to happen after GVM otherwise GOPATH will get unset

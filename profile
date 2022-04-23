@@ -84,18 +84,6 @@ bup() {
 export GOPATH="${HOME}/go"
 export PATH=${PATH}:"${GOPATH}/bin":/usr/local/go/bin
 
-## Chruby
-chruby_script="/usr/local/share/chruby/chruby.sh"
-# shellcheck source=/dev/null
-test -f "${chruby_script}" && . "${chruby_script}" && chruby ruby
-
-## Ruby Setup
-if command -v ruby > /dev/null && command -v gem > /dev/null; then
-  GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-  export GEM_HOME
-  export PATH=${PATH}:"${GEM_HOME}/bin"
-fi
-
 ## Git Duet
 export GIT_DUET_ROTATE_AUTHOR=1
 export GIT_DUET_SET_GIT_USER_CONFIG=1
@@ -109,10 +97,6 @@ export EDITOR="nvim"
 
 ## Force xterm-256color
 export TERM="xterm-256color"
-
-## PATH
-export PATH=/usr/local/bin:/usr/local/sbin:${PATH} # Add /usr/local/{bin,sbin} to PATH
-export PATH=${HOME}/.local/bin:${HOME}/bin:${PATH} # Add ~/.local/bin, ~/bin to PATH
 
 ## Direnv
 test -e "$(which direnv)" && eval "$(direnv hook "$(ps -ocomm= $$| cut -d"-" -f2)")"
